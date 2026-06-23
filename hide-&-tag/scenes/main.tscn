@@ -1,17 +1,28 @@
 [gd_scene format=3 uid="uid://cfeaia4ren68m"]
 
+[ext_resource type="PackedScene" uid="uid://dlurdnmhdxivl" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bmkr7fbkfj1mc" path="res://scenes/player_2.tscn" id="2_0wfyh"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgp6g"]
-size = Vector2(627, 88)
+size = Vector2(626.5, 90)
 
 [node name="Node2D" type="Node2D" unique_id=1806898806]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=452463170]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1738601455]
-position = Vector2(313.5, 44)
+position = Vector2(652.75, 472)
 shape = SubResource("RectangleShape2D_sgp6g")
 
 [node name="ColorRect" type="ColorRect" parent="CharacterBody2D" unique_id=1629388739]
-offset_right = 628.0
-offset_bottom = 89.0
+offset_left = 339.0
+offset_top = 427.0
+offset_right = 967.0
+offset_bottom = 518.0
 color = Color(0.32941177, 0, 0.7882353, 1)
+
+[node name="CharacterBody2D2" parent="." unique_id=1091058034 instance=ExtResource("1_o5qli")]
+position = Vector2(419, 340)
+
+[node name="CharacterBody2D3" parent="." unique_id=217290888 instance=ExtResource("2_0wfyh")]
+position = Vector2(889, 348)
