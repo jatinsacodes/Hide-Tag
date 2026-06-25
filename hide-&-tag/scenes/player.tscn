@@ -5,8 +5,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(18, 40)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1091058034]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+size = Vector2(30, 44)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1091058034 node_paths=PackedStringArray("player_two")]
 script = ExtResource("1_3vyb7")
+player_two = NodePath(".")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826610882]
 shape = SubResource("RectangleShape2D_u8vuu")
@@ -16,3 +20,8 @@ offset_left = -9.0
 offset_top = -20.0
 offset_right = 9.0
 offset_bottom = 20.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1396963196]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=422506004]
+shape = SubResource("RectangleShape2D_3vyb7")
