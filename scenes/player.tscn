@@ -9,6 +9,7 @@ size = Vector2(18, 40)
 size = Vector2(30, 44)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1091058034 node_paths=PackedStringArray("player_two")]
+modulate = Color(0.09803922, 0.827451, 0.9019608, 1)
 script = ExtResource("1_3vyb7")
 player_two = NodePath(".")
 

@@ -9,6 +9,7 @@ size = Vector2(18, 40)
 size = Vector2(18, 40)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=217290888]
+modulate = Color(1, 0.18039216, 0.49411765, 1)
 script = ExtResource("1_l6tho")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=366748247]
