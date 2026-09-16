@@ -3,6 +3,9 @@ extends Node2D
 #How long the rounds are
 var time_left = 300.0
 
+#Game over decider
+var game_over = false
+
 @export var time_label: Label
 @export var pause_button: Button
 @export var player_one: CharacterBody2D
@@ -10,6 +13,8 @@ var time_left = 300.0
 @export var p1_spawn: Marker2D
 @export var p2_spawn: Marker2D
 @export var pause_menu: Panel
+@export var game_over_menu: Panel
+@export var winner_label: Label
 
 func _process(delta:float) -> void:
 	#Taking away the time
@@ -19,6 +24,9 @@ func _process(delta:float) -> void:
 	#Time cannot reach 0
 	if time_left < 0:
 		time_left = 0
+	
+	if time_left <= 0 and not game_over:
+		end_round()
 	
 	#Turning time into whole seconds and then turning into minutes and seconds
 	var total_seconds = int(time_left)
@@ -69,5 +77,37 @@ func _on_options_button_pressed() -> void:
 	print("Options button pressed")
 
 func _on_home_button_pressed() -> void:
+	#Home button
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")	
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func end_round() -> void:
+	#Remembers round only happens once
+	game_over = true
+	
+	##Check who won
+	if player_one.is_seeker:
+		winner_label.text = "Player 2 wins!"
+		winner_label.add_theme_color_override("font_color", Color("ff2e7e"))
+	else:
+		winner_label.text = "Player 1 wins!"
+		winner_label.add_theme_color_override("font_color", Color("19d3e6"))
+	
+	#Hide the pause menu
+	pause_button.visible = false
+	
+	#Show that the game is over freeze game
+	game_over_menu.visible = true
+	get_tree().paused = true
+	
+
+
+func _on_play_again_button_pressed() -> void:
+	#Play the game again
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+
+func _on_quit_button_pressed() -> void:
+	#Quit the game
+	get_tree().quit()

@@ -47,7 +47,7 @@ corner_radius_bottom_left = 40
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fog8g"]
 size = Vector2(3000, 100)
 
-[node name="Map1" type="Node2D" unique_id=1002578390 node_paths=PackedStringArray("time_label", "pause_button", "player_one", "player_two", "p1_spawn", "p2_spawn", "pause_menu")]
+[node name="Map1" type="Node2D" unique_id=1002578390 node_paths=PackedStringArray("time_label", "pause_button", "player_one", "player_two", "p1_spawn", "p2_spawn", "pause_menu", "game_over_menu", "winner_label")]
 script = ExtResource("1_00lji")
 time_label = NodePath("CanvasLayer/TimerRow/TimeValue")
 pause_button = NodePath("CanvasLayer/PauseButton")
@@ -56,6 +56,8 @@ player_two = NodePath("Player2")
 p1_spawn = NodePath("P1Spawn")
 p2_spawn = NodePath("P2Spawn")
 pause_menu = NodePath("CanvasLayer/PauseMenu")
+game_over_menu = NodePath("CanvasLayer/GameOverMenu")
+winner_label = NodePath("CanvasLayer/GameOverMenu/GameOverButtons/WinnerLabel")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1831633259]
 offset_right = 1152.0
@@ -256,8 +258,73 @@ icon = ExtResource("9_wqnuq")
 flat = true
 alignment = 0
 
+[node name="GameOverMenu" type="Panel" parent="CanvasLayer" unique_id=1073422408]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -165.0
+offset_right = 210.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_08vx1")
+
+[node name="GameOverButtons" type="VBoxContainer" parent="CanvasLayer/GameOverMenu" unique_id=1473226438]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/GameOverMenu/GameOverButtons" unique_id=606222048]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.039215688, 0.039215688, 0.078431375, 1)
+theme_override_font_sizes/font_size = 52
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="WinnerLabel" type="Label" parent="CanvasLayer/GameOverMenu/GameOverButtons" unique_id=1462352507]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.039215688, 0.039215688, 0.078431375, 1)
+theme_override_font_sizes/font_size = 36
+text = "Player 1 Wins!"
+horizontal_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="CanvasLayer/GameOverMenu/GameOverButtons" unique_id=813738408]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.039215688, 0.039215688, 0.078431375, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 100
+theme_override_font_sizes/font_size = 48
+text = "Play Again"
+flat = true
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/GameOverMenu/GameOverButtons" unique_id=335975095]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.039215688, 0.039215688, 0.078431375, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 100
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+flat = true
+
 [node name="P1Spawn" type="Marker2D" parent="." unique_id=1602238065]
-position = Vector2(40, 109)
+position = Vector2(33, 396)
 
 [node name="P2Spawn" type="Marker2D" parent="." unique_id=2112580733]
 position = Vector2(1108, 110)
@@ -292,4 +359,6 @@ color = Color(0.09803922, 0.827451, 0.9019608, 1)
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MenuButtons/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverMenu/GameOverButtons/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverMenu/GameOverButtons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="body_entered" from="FallZone" to="." method="_on_fall_zone_body_entered"]
