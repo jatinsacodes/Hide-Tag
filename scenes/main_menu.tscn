@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cpitkilbs28f7" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://doag5icsbc7mr" path="res://assets/menu_background.png" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://cljgtghff2dbv" path="res://scenes/controls_menu.tscn" id="3_bqqt6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6cm7"]
 
-[node name="MainMenu" type="Control" unique_id=747521759]
+[node name="MainMenu" type="Control" unique_id=747521759 node_paths=PackedStringArray("controls_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
+controls_menu = NodePath("ControlsMenu")
 
 [node name="Background" type="TextureRect" parent="." unique_id=372223444]
 layout_mode = 1
@@ -95,6 +97,9 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
 text = "Quit"
 flat = true
+
+[node name="ControlsMenu" parent="." unique_id=747180267 instance=ExtResource("3_bqqt6")]
+layout_mode = 1
 
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]

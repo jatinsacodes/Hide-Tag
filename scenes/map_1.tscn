@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b5o67gjh7cc1d" path="res://assets/resume_icon.png" id="7_fog8g"]
 [ext_resource type="Texture2D" uid="uid://gj77le15glql" path="res://assets/options_icon.png" id="8_2vcri"]
 [ext_resource type="Texture2D" uid="uid://8xvdiho4dneg" path="res://assets/home_icon.png" id="9_wqnuq"]
+[ext_resource type="PackedScene" uid="uid://cljgtghff2dbv" path="res://scenes/controls_menu.tscn" id="10_2vcri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87ub3"]
 size = Vector2(360, 25)
@@ -47,7 +48,7 @@ corner_radius_bottom_left = 40
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fog8g"]
 size = Vector2(3000, 100)
 
-[node name="Map1" type="Node2D" unique_id=1002578390 node_paths=PackedStringArray("time_label", "pause_button", "player_one", "player_two", "p1_spawn", "p2_spawn", "pause_menu", "game_over_menu", "winner_label")]
+[node name="Map1" type="Node2D" unique_id=1002578390 node_paths=PackedStringArray("time_label", "pause_button", "player_one", "player_two", "p1_spawn", "p2_spawn", "pause_menu", "game_over_menu", "winner_label", "controls_menu")]
 script = ExtResource("1_00lji")
 time_label = NodePath("CanvasLayer/TimerRow/TimeValue")
 pause_button = NodePath("CanvasLayer/PauseButton")
@@ -58,6 +59,7 @@ p2_spawn = NodePath("P2Spawn")
 pause_menu = NodePath("CanvasLayer/PauseMenu")
 game_over_menu = NodePath("CanvasLayer/GameOverMenu")
 winner_label = NodePath("CanvasLayer/GameOverMenu/GameOverButtons/WinnerLabel")
+controls_menu = NodePath("CanvasLayer/ControlsMenu")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1831633259]
 offset_right = 1152.0
@@ -257,6 +259,8 @@ text = "Home"
 icon = ExtResource("9_wqnuq")
 flat = true
 alignment = 0
+
+[node name="ControlsMenu" parent="CanvasLayer" unique_id=747180267 instance=ExtResource("10_2vcri")]
 
 [node name="GameOverMenu" type="Panel" parent="CanvasLayer" unique_id=1073422408]
 process_mode = 3

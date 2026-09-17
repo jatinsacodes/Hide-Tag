@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cljgtghff2dbv"]
+
+[ext_resource type="Script" uid="uid://bpjr1gqibsbsy" path="res://scripts/controls_menu.gd" id="1_kdy74"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu0yj"]
+bg_color = Color(0.16470589, 0.18431373, 0.21176471, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="ControlsMenu" type="Panel" unique_id=747180267]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -250.0
+offset_right = 450.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cu0yj")
+script = ExtResource("1_kdy74")
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=395551816]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -99.5
+offset_right = 203.0
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Controls" type="Label" parent="Content" unique_id=329040912]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Player Controls"
+horizontal_alignment = 1
+
+[node name="Columns" type="HBoxContainer" parent="Content" unique_id=1616661897]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Player1Controls" type="Label" parent="Content/Columns" unique_id=253248915]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Player 1 Movement
+Move Left/Right: A / D
+Jump: W
+Drop down: S
+Climb ladder: W / S"
+
+[node name="Player2Controls" type="Label" parent="Content/Columns" unique_id=1530284321]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Player 2 Movement
+Move Left/Right: Left / Right
+Jump: Up
+Drop down: Down
+Climb ladder: Up/Down"
+
+[node name="TagTip" type="Label" parent="Content" unique_id=58319942]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Touch the other player to tag them"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="Content" unique_id=1204905735]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.2, 1, 0.2, 1)
+theme_override_font_sizes/font_size = 36
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="Content/BackButton" to="." method="_on_back_button_pressed"]

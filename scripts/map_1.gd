@@ -15,6 +15,7 @@ var game_over = false
 @export var pause_menu: Panel
 @export var game_over_menu: Panel
 @export var winner_label: Label
+@export var controls_menu: Panel
 
 func _process(delta:float) -> void:
 	#Taking away the time
@@ -74,7 +75,7 @@ func _on_resume_button_pressed() -> void:
 	
 func _on_options_button_pressed() -> void:
 	#Options button
-	print("Options button pressed")
+	controls_menu.visible = true
 
 func _on_home_button_pressed() -> void:
 	#Home button
