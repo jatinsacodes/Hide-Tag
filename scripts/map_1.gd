@@ -1,7 +1,7 @@
 extends Node2D
 
 #How long the rounds are
-var time_left = 300.0
+var time_left = 10.0
 
 #Game over decider
 var game_over = false
@@ -89,10 +89,10 @@ func end_round() -> void:
 	##Check who won
 	if player_one.is_seeker:
 		winner_label.text = "Player 2 wins!"
-		winner_label.add_theme_color_override("font_color", Color("ff2e7e"))
+		winner_label.add_theme_color_override("font_color", player_two.modulate)
 	else:
 		winner_label.text = "Player 1 wins!"
-		winner_label.add_theme_color_override("font_color", Color("19d3e6"))
+		winner_label.add_theme_color_override("font_color", player_one.modulate)
 	
 	#Hide the pause menu
 	pause_button.visible = false

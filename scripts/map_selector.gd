@@ -3,7 +3,7 @@ extends Control
 
 func _on_easy_button_pressed() -> void:
 	#Players play easy map
-	print("Easy Map")
+	get_tree().change_scene_to_file("res://scenes/map_2.tscn")
 
 
 func _on_medium_button_pressed() -> void:
