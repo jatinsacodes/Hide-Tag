@@ -1,42 +1,43 @@
-[gd_scene format=3 uid="uid://c1vaoeno0h7wm"]
+[gd_scene format=3 uid="uid://s3mymgk15rmk"]
 
-[ext_resource type="Script" uid="uid://ddvj30fr7xx28" path="res://scripts/map_1.gd" id="1_00lji"]
-[ext_resource type="Texture2D" uid="uid://d4j46ou0lf65t" path="res://assets/map1_background.png" id="1_87ub3"]
-[ext_resource type="PackedScene" uid="uid://dlurdnmhdxivl" path="res://scenes/player.tscn" id="2_lj2ar"]
-[ext_resource type="PackedScene" uid="uid://bmkr7fbkfj1mc" path="res://scenes/player_2.tscn" id="3_00lji"]
-[ext_resource type="Script" uid="uid://cs1nuueub3oeh" path="res://scripts/ladder.gd" id="3_k075t"]
-[ext_resource type="Texture2D" uid="uid://djibcpnr6ysws" path="res://assets/ladder.png" id="5_0dnla"]
-[ext_resource type="Texture2D" uid="uid://b5o67gjh7cc1d" path="res://assets/resume_icon.png" id="7_fog8g"]
-[ext_resource type="Texture2D" uid="uid://gj77le15glql" path="res://assets/options_icon.png" id="8_2vcri"]
-[ext_resource type="Texture2D" uid="uid://8xvdiho4dneg" path="res://assets/home_icon.png" id="9_wqnuq"]
-[ext_resource type="PackedScene" uid="uid://cljgtghff2dbv" path="res://scenes/controls_menu.tscn" id="10_2vcri"]
+[ext_resource type="Script" uid="uid://ddvj30fr7xx28" path="res://scripts/map_1.gd" id="1_iqnx3"]
+[ext_resource type="Texture2D" uid="uid://drxt8vv358llc" path="res://assets/map_3.png" id="2_0a7yh"]
+[ext_resource type="PackedScene" uid="uid://dlurdnmhdxivl" path="res://scenes/player.tscn" id="5_0jfrf"]
+[ext_resource type="PackedScene" uid="uid://bmkr7fbkfj1mc" path="res://scenes/player_2.tscn" id="6_briq8"]
+[ext_resource type="Texture2D" uid="uid://b5o67gjh7cc1d" path="res://assets/resume_icon.png" id="7_s0n5c"]
+[ext_resource type="Texture2D" uid="uid://gj77le15glql" path="res://assets/options_icon.png" id="8_7b4kn"]
+[ext_resource type="Texture2D" uid="uid://8xvdiho4dneg" path="res://assets/home_icon.png" id="9_82fti"]
+[ext_resource type="PackedScene" uid="uid://cljgtghff2dbv" path="res://scenes/controls_menu.tscn" id="10_krloe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87ub3"]
-size = Vector2(360, 25)
+size = Vector2(244, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xies"]
-size = Vector2(204, 25)
+size = Vector2(157, 33.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lj2ar"]
-size = Vector2(203, 25)
+size = Vector2(324, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00lji"]
-size = Vector2(330.5, 25)
+size = Vector2(157.25, 33.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dnla"]
-size = Vector2(331, 25.5)
+size = Vector2(157.5, 32.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k075t"]
-size = Vector2(80, 25)
+size = Vector2(157, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfx0i"]
-size = Vector2(360, 25)
+size = Vector2(252, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbsvo"]
-size = Vector2(300, 25)
+size = Vector2(158, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vcri"]
-size = Vector2(56, 288)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwffn"]
+size = Vector2(196, 33.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqnx3"]
+size = Vector2(158, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08vx1"]
 bg_color = Color(0.36078432, 0.36078432, 0.47843137, 0.8)
@@ -46,7 +47,7 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vcri"]
-bg_color = Color(0.36078432, 0.36078432, 0.47843137, 1)
+bg_color = Color(0.9529412, 0.8901961, 0.7529412, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
@@ -55,8 +56,8 @@ corner_radius_bottom_left = 40
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fog8g"]
 size = Vector2(3000, 100)
 
-[node name="Map1" type="Node2D" unique_id=1002578390 node_paths=PackedStringArray("time_label", "pause_button", "player_one", "player_two", "p1_spawn", "p2_spawn", "pause_menu", "game_over_menu", "winner_label", "controls_menu")]
-script = ExtResource("1_00lji")
+[node name="Map3" type="Node2D" unique_id=1002578390 node_paths=PackedStringArray("time_label", "pause_button", "player_one", "player_two", "p1_spawn", "p2_spawn", "pause_menu", "game_over_menu", "winner_label", "controls_menu")]
+script = ExtResource("1_iqnx3")
 time_label = NodePath("CanvasLayer/TimerRow/TimeValue")
 pause_button = NodePath("CanvasLayer/PauseButton")
 player_one = NodePath("Player1")
@@ -71,84 +72,72 @@ controls_menu = NodePath("CanvasLayer/ControlsMenu")
 [node name="Background" type="TextureRect" parent="." unique_id=1831633259]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_87ub3")
+texture = ExtResource("2_0a7yh")
 expand_mode = 1
 
 [node name="Platforms" type="StaticBody2D" parent="." unique_id=1713220383]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms" unique_id=879586796]
-position = Vector2(180, 201.5)
+position = Vector2(133, 227.25)
 shape = SubResource("RectangleShape2D_87ub3")
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms" unique_id=1610683698]
-position = Vector2(342, 299)
+position = Vector2(211.5, 323.75)
 shape = SubResource("RectangleShape2D_7xies")
 one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Platforms" unique_id=1127100545]
-position = Vector2(666.5, 253)
+position = Vector2(530, 259.5)
 shape = SubResource("RectangleShape2D_lj2ar")
 one_way_collision = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Platforms" unique_id=1736826427]
-position = Vector2(986.75, 201.5)
+position = Vector2(928.375, 227.75)
 shape = SubResource("RectangleShape2D_00lji")
 one_way_collision = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Platforms" unique_id=1038655832]
-position = Vector2(668.5, 376.25)
+position = Vector2(417.25, 389.375)
 shape = SubResource("RectangleShape2D_0dnla")
 one_way_collision = true
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Platforms" unique_id=1107712316]
-position = Vector2(911, 346.5)
+position = Vector2(928.5, 464.25)
 shape = SubResource("RectangleShape2D_k075t")
 one_way_collision = true
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Platforms" unique_id=1787352122]
-position = Vector2(180, 503.5)
+position = Vector2(212, 516.25)
 shape = SubResource("RectangleShape2D_nfx0i")
 one_way_collision = true
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Platforms" unique_id=1505016755]
-position = Vector2(618, 573.5)
+position = Vector2(417, 631.5)
 shape = SubResource("RectangleShape2D_gbsvo")
 one_way_collision = true
 
-[node name="Ladder" type="Area2D" parent="." unique_id=952066811 node_paths=PackedStringArray("player_one", "player_two", "ladder_picture", "seeker_wait_timer")]
-script = ExtResource("3_k075t")
-player_one = NodePath("../Player1")
-player_two = NodePath("../Player2")
-ladder_picture = NodePath("LadderPicture")
-seeker_wait_timer = NodePath("SeekerWaitTimer")
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Platforms" unique_id=1020432389]
+position = Vector2(594, 464)
+shape = SubResource("RectangleShape2D_fwffn")
+one_way_collision = true
 
-[node name="LadderPicture" type="TextureRect" parent="Ladder" unique_id=341458523]
-modulate = Color(0.53333336, 0.53333336, 0.53333336, 1)
-offset_left = 835.0
-offset_top = 352.0
-offset_right = 994.0
-offset_bottom = 652.0
-texture = ExtResource("5_0dnla")
-expand_mode = 1
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Platforms" unique_id=711418344]
+position = Vector2(771, 528)
+shape = SubResource("RectangleShape2D_iqnx3")
+one_way_collision = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" unique_id=521748297]
-position = Vector2(918, 503)
-shape = SubResource("RectangleShape2D_2vcri")
-
-[node name="SeekerWaitTimer" type="Timer" parent="Ladder" unique_id=1007326626]
-wait_time = 5.0
-one_shot = true
-
-[node name="Player1" parent="." unique_id=1091058034 node_paths=PackedStringArray("player_two", "label_p1", "label_p2") instance=ExtResource("2_lj2ar")]
-position = Vector2(69, 457)
+[node name="Player1" parent="." unique_id=1091058034 node_paths=PackedStringArray("player_two", "label_p1", "label_p2") instance=ExtResource("5_0jfrf")]
+modulate = Color(0.3529412, 0.22745098, 0.11764706, 1)
+position = Vector2(102, 457)
 player_two = NodePath("../Player2")
 label_p1 = NodePath("../CanvasLayer/Player One Role")
 label_p2 = NodePath("../CanvasLayer/Player Two Role")
 
-[node name="Player2" parent="." unique_id=217290888 instance=ExtResource("3_00lji")]
-position = Vector2(619, 333)
+[node name="Player2" parent="." unique_id=217290888 instance=ExtResource("6_briq8")]
+modulate = Color(0.24705882, 0.41960785, 0.16470589, 1)
+position = Vector2(985, 166)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1513747693]
 
@@ -157,14 +146,14 @@ offset_left = 20.0
 offset_top = 15.0
 offset_right = 60.0
 offset_bottom = 38.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.3529412, 0.22745098, 0.11764706, 1)
 
 [node name="Player Two Role" type="Label" parent="CanvasLayer" unique_id=430236838]
 offset_left = 1015.0
 offset_top = 15.0
 offset_right = 1055.0
 offset_bottom = 38.0
-theme_override_colors/font_color = Color(1, 0.18039216, 0.49411765, 1)
+theme_override_colors/font_color = Color(0.24705882, 0.41960785, 0.16470589, 1)
 horizontal_alignment = 2
 
 [node name="TimerRow" type="HBoxContainer" parent="CanvasLayer" unique_id=298125373]
@@ -239,7 +228,7 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/icon_max_width = 100
 theme_override_font_sizes/font_size = 48
 text = "Resume"
-icon = ExtResource("7_fog8g")
+icon = ExtResource("7_s0n5c")
 flat = true
 alignment = 0
 
@@ -251,7 +240,7 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/icon_max_width = 100
 theme_override_font_sizes/font_size = 48
 text = "Options"
-icon = ExtResource("8_2vcri")
+icon = ExtResource("8_7b4kn")
 flat = true
 alignment = 0
 
@@ -263,11 +252,11 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/icon_max_width = 100
 theme_override_font_sizes/font_size = 48
 text = "Home"
-icon = ExtResource("9_wqnuq")
+icon = ExtResource("9_82fti")
 flat = true
 alignment = 0
 
-[node name="ControlsMenu" parent="CanvasLayer" unique_id=747180267 instance=ExtResource("10_2vcri")]
+[node name="ControlsMenu" parent="CanvasLayer" unique_id=747180267 instance=ExtResource("10_krloe")]
 
 [node name="GameOverMenu" type="Panel" parent="CanvasLayer" unique_id=1073422408]
 process_mode = 3
@@ -335,10 +324,10 @@ text = "Quit"
 flat = true
 
 [node name="P1Spawn" type="Marker2D" parent="." unique_id=1602238065]
-position = Vector2(33, 396)
+position = Vector2(97, 404)
 
 [node name="P2Spawn" type="Marker2D" parent="." unique_id=2112580733]
-position = Vector2(1108, 110)
+position = Vector2(985, 119)
 
 [node name="FallZone" type="Area2D" parent="." unique_id=28724551]
 visible = false
@@ -347,25 +336,22 @@ visible = false
 position = Vector2(624, 745)
 shape = SubResource("RectangleShape2D_fog8g")
 
-[node name="PinkBox" type="ColorRect" parent="." unique_id=873101678]
+[node name="BrownBox" type="ColorRect" parent="." unique_id=2109733480]
 z_index = 1
-offset_left = 145.0
-offset_top = 109.0
-offset_right = 225.0
-offset_bottom = 189.0
-color = Color(1, 0.18039216, 0.49411765, 1)
+offset_left = 113.0
+offset_top = 131.0
+offset_right = 193.0
+offset_bottom = 211.0
+color = Color(0.3529412, 0.22745098, 0.11764706, 1)
 
-[node name="CyanBox" type="ColorRect" parent="." unique_id=328646185]
+[node name="GreenBox" type="ColorRect" parent="." unique_id=1777000311]
 z_index = 1
-offset_left = 660.0
-offset_top = 481.0
-offset_right = 740.0
-offset_bottom = 561.0
-color = Color(0.09803922, 0.827451, 0.9019608, 1)
+offset_left = 416.0
+offset_top = 536.0
+offset_right = 496.0
+offset_bottom = 616.0
+color = Color(0.24705882, 0.41960785, 0.16470589, 1)
 
-[connection signal="body_entered" from="Ladder" to="Ladder" method="_on_body_entered"]
-[connection signal="body_exited" from="Ladder" to="Ladder" method="_on_body_exited"]
-[connection signal="timeout" from="Ladder/SeekerWaitTimer" to="Ladder" method="_on_seeker_wait_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]

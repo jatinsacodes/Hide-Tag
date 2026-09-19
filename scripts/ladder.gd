@@ -5,7 +5,7 @@ extends Area2D
 @export var ladder_picture: TextureRect
 @export var seeker_wait_timer: Timer
 
-#Seeker cant climb ladder yet
+#Seeker can climb ladder yet
 var seeker_allowed = true
 
 func _physics_process(_delta: float) -> void:
