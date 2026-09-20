@@ -3,6 +3,8 @@ extends CharacterBody2D
 var speed = 300
 var jump_velocity = -400
 var climb_speed = 150
+var bounce_fade = 700
+var push_x = 0
 
 # Set by player one's script when roles are assigned or swapped
 var is_seeker = false
@@ -17,7 +19,8 @@ func _physics_process(delta: float) -> void:
 	if is_frozen:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
-		velocity.x = 0
+		velocity.x = push_x
+		push_x = move_toward(push_x, 0, bounce_fade * delta)
 		move_and_slide()
 		return
 	
@@ -51,5 +54,8 @@ func _physics_process(delta: float) -> void:
 	# Move down with down arrow
 	if Input.is_key_pressed(KEY_DOWN):
 		position.y += 1
-
+	
+	#Add bounce on top of the normal movement
+	velocity.x += push_x
+	push_x = move_toward(push_x, 0, bounce_fade * delta)
 	move_and_slide()

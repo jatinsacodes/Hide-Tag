@@ -1,7 +1,7 @@
 extends Node2D
 
 #How long the rounds are
-var time_left = 300.0
+var time_left = 30.0
 
 #Game over decider
 var game_over = false

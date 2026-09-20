@@ -3,6 +3,10 @@ extends CharacterBody2D
 var speed = 300
 var jump_velocity = -400
 var climb_speed = 150
+var bounce_speed = 350
+var bounce_fade = 700
+var bounce_jump = -120
+var push_x = 0
 
 # True means this player is currently the seeker
 var is_seeker = false
@@ -44,7 +48,22 @@ func update_labels() -> void:
 		label_p1.text = "Player 1: Hider"
 		label_p2.text = "Player 2: Seeker"
 
+func bounce_players() -> void:
+	#Push players away
+	if position.x < player_two.position.x:
+		push_x = -bounce_speed
+		player_two.push_x = bounce_speed
+	else:
+		push_x = bounce_speed
+		player_two.push_x = -bounce_speed
+	#Small hop
+	velocity.y = bounce_speed
+	player_two.velocity.y = bounce_jump
+
 func _physics_process(delta: float) -> void:
+	#Bounce players
+	if $Area2D.overlaps_body(player_two):
+		bounce_players()
 	# Check if player two is overlapping and tag is allowed
 	if can_tag and $Area2D.overlaps_body(player_two):
 		can_tag = false
@@ -68,12 +87,13 @@ func _physics_process(delta: float) -> void:
 
 		# Allow tagging again
 		can_tag = true
-
+	
 	# If frozen only apply gravity no movement allowed
 	if is_frozen:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
-		velocity.x = 0
+		velocity.x = push_x
+		push_x = move_toward(push_x, 0, bounce_fade * delta)
 		move_and_slide()
 		return
 	
@@ -108,5 +128,8 @@ func _physics_process(delta: float) -> void:
 	# Move down with S key
 	if Input.is_key_pressed(KEY_S):
 		position.y += 1
-
+	
+	#Add bounce on top of the normal movement
+	velocity.x += push_x
+	push_x = move_toward(push_x, 0, bounce_fade * delta)
 	move_and_slide()
