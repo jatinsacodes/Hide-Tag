@@ -26,3 +26,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=264522422]
 shape = SubResource("RectangleShape2D_l6tho")
+
+[node name="RoleLabel" type="Label" parent="." unique_id=617888252]
+offset_left = -20.0
+offset_top = -43.0
+offset_right = 20.0
+offset_bottom = -20.0
+theme_override_constants/outline_size = 6

@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
+#Player speed
 var speed = 300
+#Player jump velocity
 var jump_velocity = -400
+#Player climb speed for ladder
 var climb_speed = 150
+#Tagging mechnaism for players
 var bounce_fade = 700
 var push_x = 0
 
@@ -15,6 +19,9 @@ var is_frozen = false
 var can_climb = false
 
 func _physics_process(delta: float) -> void:
+	#Player roles above them
+	$RoleLabel.text = "SEEKER"
+	$RoleLabel.visible = is_seeker
 	# If frozen only apply gravity so player falls no movement
 	if is_frozen:
 		if not is_on_floor():

@@ -70,7 +70,7 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a3ge"]
-bg_color = Color(0.36078432, 0.36078432, 0.47843137, 1)
+bg_color = Color(0.36078432, 0.36078432, 0.47843137, 0.8)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
@@ -266,6 +266,7 @@ offset_top = 15.0
 offset_right = 60.0
 offset_bottom = 38.0
 theme_override_colors/font_color = Color(0.043137256, 0.23921569, 0.043137256, 1)
+theme_override_constants/outline_size = 6
 
 [node name="Player Two Role" type="Label" parent="CanvasLayer" unique_id=430236838]
 offset_left = 1015.0
@@ -273,6 +274,7 @@ offset_top = 15.0
 offset_right = 1055.0
 offset_bottom = 38.0
 theme_override_colors/font_color = Color(0.22745098, 0.11372549, 0.03137255, 1)
+theme_override_constants/outline_size = 6
 horizontal_alignment = 2
 
 [node name="TimerRow" type="HBoxContainer" parent="CanvasLayer" unique_id=298125373]
@@ -287,6 +289,7 @@ grow_horizontal = 2
 
 [node name="TimeText" type="Label" parent="CanvasLayer/TimerRow" unique_id=1922112243]
 layout_mode = 2
+theme_override_constants/outline_size = 6
 text = "Time left - "
 
 [node name="TimeValue" type="Label" parent="CanvasLayer/TimerRow" unique_id=1835812570]
@@ -439,7 +442,7 @@ theme_override_colors/font_color = Color(0.039215688, 0.039215688, 0.078431375, 
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/icon_max_width = 100
 theme_override_font_sizes/font_size = 48
-text = "Quit"
+text = "Main Menu"
 flat = true
 
 [node name="P1Spawn" type="Marker2D" parent="." unique_id=1602238065]

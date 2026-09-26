@@ -1,7 +1,7 @@
 extends Node2D
 
 #How long the rounds are
-var time_left = 30.0
+var time_left = 10.0
 
 #Game over decider
 var game_over = false
@@ -58,7 +58,6 @@ func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	pause_menu.visible = true
 
-
 func _on_fall_zone_body_entered(body: Node2D) -> void:
 	if body == player_one:
 		player_one.global_position = p1_spawn.global_position
@@ -66,7 +65,6 @@ func _on_fall_zone_body_entered(body: Node2D) -> void:
 	elif body == player_two:
 		player_two.global_position = p2_spawn.global_position
 		player_two.velocity = Vector2.ZERO
-
 
 func _on_resume_button_pressed() -> void:
 	#Hide the pause menu
@@ -100,15 +98,14 @@ func end_round() -> void:
 	#Show that the game is over freeze game
 	game_over_menu.visible = true
 	get_tree().paused = true
-	
-
 
 func _on_play_again_button_pressed() -> void:
 	#Play the game again
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
-
 func _on_quit_button_pressed() -> void:
-	#Quit the game
-	get_tree().quit()
+	#Go the main menu screen
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	

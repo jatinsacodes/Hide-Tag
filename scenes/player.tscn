@@ -26,3 +26,10 @@ offset_bottom = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=422506004]
 shape = SubResource("RectangleShape2D_3vyb7")
+
+[node name="RoleLabel" type="Label" parent="." unique_id=444460282]
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 20.0
+offset_bottom = -22.0
+theme_override_constants/outline_size = 6

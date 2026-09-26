@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
+#Player Speed
 var speed = 300
+#Player jump velocity
 var jump_velocity = -400
+#Player climb speed for ladder
 var climb_speed = 150
+#Tagging mechnaism for players
 var bounce_speed = 350
 var bounce_fade = 700
 var bounce_jump = -120
@@ -57,10 +61,13 @@ func bounce_players() -> void:
 		push_x = bounce_speed
 		player_two.push_x = -bounce_speed
 	#Small hop
-	velocity.y = bounce_speed
+	velocity.y = bounce_jump
 	player_two.velocity.y = bounce_jump
 
 func _physics_process(delta: float) -> void:
+	#Player roles above them
+	$RoleLabel.text = "SEEKER"
+	$RoleLabel.visible = is_seeker
 	#Bounce players
 	if $Area2D.overlaps_body(player_two):
 		bounce_players()
