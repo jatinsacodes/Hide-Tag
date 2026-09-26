@@ -12,6 +12,11 @@ var bounce_fade = 700
 var bounce_jump = -120
 var push_x = 0
 
+#How long before tagging can start
+const tag_delay = 1.0
+#How long the seeker is frozen for
+const freeze_time = 5.0
+
 # True means this player is currently the seeker
 var is_seeker = false
 
@@ -40,7 +45,7 @@ func _ready() -> void:
 	update_labels()
 
 	# Wait 1 second before allowing tagging when game starts
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(tag_delay).timeout
 	can_tag = true
 
 func update_labels() -> void:
@@ -85,11 +90,11 @@ func _physics_process(delta: float) -> void:
 		# Freeze the new seeker for 5 seconds
 		if is_seeker:
 			is_frozen = true
-			await get_tree().create_timer(5.0).timeout
+			await get_tree().create_timer(freeze_time).timeout
 			is_frozen = false
 		else:
 			player_two.is_frozen = true
-			await get_tree().create_timer(5.0).timeout
+			await get_tree().create_timer(freeze_time).timeout
 			player_two.is_frozen = false
 
 		# Allow tagging again

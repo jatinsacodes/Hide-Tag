@@ -1,7 +1,25 @@
 extends Node2D
 
 #How long the rounds are
-var time_left = 10.0
+const round_time = 300.0
+var time_left = round_time
+
+#When the colour changes of the timer
+const yellow_time = 180
+const red_time = 60
+const seconds_per_minute = 60
+
+#Timer colours
+const green = Color("33ff33")
+const yellow = Color("f5c542")
+const red = Color("ff3333")
+
+#Layers so the hider can go behind the hiding boxes
+const seeker_layer = 2
+const hider_layer = 0
+
+#Main menu scene
+const main_menu_screen = "res://scenes/main_menu.tscn"
 
 #Game over decider
 var game_over = false
@@ -32,26 +50,25 @@ func _process(delta:float) -> void:
 	#Turning time into whole seconds and then turning into minutes and seconds
 	var total_seconds = int(time_left)
 	
-	var minutes = int(total_seconds/60.0)
-	var seconds = total_seconds % 60
+	var minutes = int(total_seconds/float(seconds_per_minute))
+	var seconds = total_seconds % seconds_per_minute
 	
 	#Showing time in this format 3:05
 	time_label.text = str(minutes) + ":" +str(seconds).pad_zeros(2)
 	
 	#Changing time colour based on time left
-	if total_seconds > 180:
-		time_label.add_theme_color_override("font_color", Color("33ff33"))
-	elif total_seconds > 60:
-		time_label.add_theme_color_override("font_color", Color("f5c542"))
+	if total_seconds > yellow_time:
+		time_label.add_theme_color_override("font_color", green)
+	elif total_seconds > red_time:
+		time_label.add_theme_color_override("font_color", yellow)
 	else:
-		time_label.add_theme_color_override("font_color", Color("ff3333"))
+		time_label.add_theme_color_override("font_color", red)
 	#Only the hider can hide behind the boxes
-	if player_one.is_seeker:
-		player_one.z_index = 2
-		player_two.z_index = 0
-	else:
-		player_one.z_index = 0
-		player_two.z_index = 2
+	for player in [player_one, player_two]:
+		if player.is_seeker:
+			player.z_index = seeker_layer
+		else:
+			player.z_index = hider_layer
 	
 func _on_pause_button_pressed() -> void:
 	#Pausing the game
@@ -78,7 +95,7 @@ func _on_options_button_pressed() -> void:
 func _on_home_button_pressed() -> void:
 	#Home button
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file(main_menu_screen)
 
 func end_round() -> void:
 	#Remembers round only happens once
@@ -107,5 +124,5 @@ func _on_play_again_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	#Go the main menu screen
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file(main_menu_screen)
 	

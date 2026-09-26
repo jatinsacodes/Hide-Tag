@@ -7,6 +7,7 @@ extends Area2D
 
 #Seeker can climb ladder yet
 var seeker_allowed = true
+const ladder_grey = Color("888888")
 
 func _physics_process(_delta: float) -> void:
 	#Find out who hider and seeker is
@@ -48,11 +49,11 @@ func _on_body_exited(body: Node2D) -> void:
 	if not body.is_seeker:
 		seeker_wait_timer.start()
 	elif seeker_allowed:
-		ladder_picture.modulate = Color("888888")
+		ladder_picture.modulate = ladder_grey
 
 
 func _on_seeker_wait_timer_timeout() -> void:
 	#Seeker can go on the ladder now
 	seeker_allowed = true
 	#Ladder back to grey
-	ladder_picture.modulate = Color("888888")
+	ladder_picture.modulate = ladder_grey
