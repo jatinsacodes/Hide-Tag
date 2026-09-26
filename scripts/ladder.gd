@@ -1,16 +1,19 @@
 extends Area2D
 
+
 @export var player_one: CharacterBody2D
 @export var player_two: CharacterBody2D
 @export var ladder_picture: TextureRect
 @export var seeker_wait_timer: Timer
 
-#Seeker can climb ladder yet
+
+# Can the seeker can climb the ladder yet
 var seeker_allowed = true
-const ladder_grey = Color("888888")
+const LADDER_GREY = Color("888888")
+
 
 func _physics_process(_delta: float) -> void:
-	#Find out who hider and seeker is
+	# Find out who hider and seeker is
 	var seeker
 	var hider
 	if player_one.is_seeker:
@@ -19,41 +22,41 @@ func _physics_process(_delta: float) -> void:
 	else:
 		seeker = player_two
 		hider = player_one
-	#Hider can climb whenever
+	# Hider can climb whenever
 	hider.can_climb = overlaps_body(hider)
-	#Seeker can only climb after 5 seconds ended
+	# Seeker can only climb after 5 seconds ended
 	seeker.can_climb = overlaps_body(seeker) and seeker_allowed
 
 
 func _on_body_entered(body: Node2D) -> void:
-	#Ignore anything else
+	# Ignore anything else
 	if body != player_one and body != player_two:
 		return
-	#When the hider gets on the ladder
+	# When the hider gets on the ladder
 	if not body.is_seeker:
-		#Turning the ladders colour
+		# Turning the ladders colour
 		ladder_picture.modulate = body.modulate
-		#Seeker can't get on yet and has to wait
+		# Seeker can't get on yet and has to wait
 		seeker_allowed = false
 		seeker_wait_timer.stop()
 	elif seeker_allowed:
-		#Turns the ladder to the seeker colour
+		# Turns the ladder to the seeker colour
 		ladder_picture.modulate = body.modulate
 
 
 func _on_body_exited(body: Node2D) -> void:
-	#Ignore anything else
+	# Ignore anything else
 	if body != player_one and body != player_two:
 		return
-	#Start the 5 second timer after hider gets of
+	# Start the 5 second timer after hider gets of
 	if not body.is_seeker:
 		seeker_wait_timer.start()
 	elif seeker_allowed:
-		ladder_picture.modulate = ladder_grey
+		ladder_picture.modulate = LADDER_GREY
 
 
 func _on_seeker_wait_timer_timeout() -> void:
-	#Seeker can go on the ladder now
+	# Seeker can go on the ladder now
 	seeker_allowed = true
-	#Ladder back to grey
-	ladder_picture.modulate = ladder_grey
+	# Ladder back to grey
+	ladder_picture.modulate = LADDER_GREY

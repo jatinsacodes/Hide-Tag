@@ -1,25 +1,28 @@
 extends CharacterBody2D
 
-#Player speed
+# Player speed
 var speed = 300
-#Player jump velocity
+# Player jump velocity
 var jump_velocity = -400
-#Player climb speed for ladder
+# Player climb speed for ladder
 var climb_speed = 150
-#Tagging mechnaism for players
+# Tagging mechnaism for players
 var bounce_fade = 700
 var push_x = 0
+
 
 # Set by player one's script when roles are assigned or swapped
 var is_seeker = false
 
+
 # Set by player one's script when this player needs to be frozen
 var is_frozen = false
-#Decides if the players can climb or not
+# Decides if the players can climb or not
 var can_climb = false
 
+
 func _physics_process(delta: float) -> void:
-	#Player roles above them
+	# Player roles above them
 	$RoleLabel.text = "SEEKER"
 	$RoleLabel.visible = is_seeker
 	# If frozen only apply gravity so player falls no movement
@@ -62,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_DOWN):
 		position.y += 1
 	
-	#Add bounce on top of the normal movement
+	# Add bounce on top of the normal movement
 	velocity.x += push_x
 	push_x = move_toward(push_x, 0, bounce_fade * delta)
 	move_and_slide()
