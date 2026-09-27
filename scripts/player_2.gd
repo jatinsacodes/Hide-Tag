@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 	
-	if can_climb:
+	if can_climb and not is_on_floor():
 		velocity.y = 0
 		if Input.is_key_pressed(KEY_UP):
 			velocity.y = -climb_speed

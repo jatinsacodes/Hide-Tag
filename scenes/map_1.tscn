@@ -36,7 +36,7 @@ size = Vector2(360, 25)
 size = Vector2(300, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vcri"]
-size = Vector2(56, 288)
+size = Vector2(56, 313)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08vx1"]
 bg_color = Color(0.36078432, 0.36078432, 0.47843137, 0.8)
@@ -134,7 +134,7 @@ texture = ExtResource("5_0dnla")
 expand_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" unique_id=521748297]
-position = Vector2(918, 503)
+position = Vector2(918, 490.5)
 shape = SubResource("RectangleShape2D_2vcri")
 
 [node name="SeekerWaitTimer" type="Timer" parent="Ladder" unique_id=1007326626]

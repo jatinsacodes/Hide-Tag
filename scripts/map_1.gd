@@ -1,7 +1,7 @@
 extends Node2D
 
 # How long the rounds are
-const ROUND_TIME = 300.0
+const ROUND_TIME = 10.0
 var time_left = ROUND_TIME
 
 
